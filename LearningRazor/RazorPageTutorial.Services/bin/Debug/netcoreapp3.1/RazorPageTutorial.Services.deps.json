@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "RazorPageTutorial.Services/1.0.0": {
+        "dependencies": {
+          "RazorLearningTutorials": "1.0.0"
+        },
+        "runtime": {
+          "RazorPageTutorial.Services.dll": {}
+        }
+      },
+      "RazorLearningTutorials/1.0.0": {
+        "runtime": {
+          "RazorLearningTutorials.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RazorPageTutorial.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RazorLearningTutorials/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,13 @@
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\bin\Debug\netcoreapp3.1\RazorPageTutorial.Services.deps.json
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\bin\Debug\netcoreapp3.1\RazorPageTutorial.Services.dll
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\bin\Debug\netcoreapp3.1\RazorPageTutorial.Services.pdb
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\bin\Debug\netcoreapp3.1\RazorLearningTutorials.dll
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\bin\Debug\netcoreapp3.1\RazorLearningTutorials.pdb
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.csprojAssemblyReference.cache
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.GeneratedMSBuildEditorConfig.editorconfig
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.AssemblyInfoInputs.cache
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.AssemblyInfo.cs
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.csproj.CoreCompileInputs.cache
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.csproj.CopyComplete
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.dll
+G:\FIFA\LearinigRazor\LearningRazor\RazorPageTutorial.Services\obj\Debug\netcoreapp3.1\RazorPageTutorial.Services.pdb

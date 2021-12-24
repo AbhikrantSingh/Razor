@@ -1,0 +1,52 @@
+﻿@page
+@model LearningRazor.Pages.AIvsTemplate.IndexModel
+@{
+
+}
+
+
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/JarvisBetter"  aria-pressed="true" role="button">Jarvis Better</a>
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/TemplateBetter" aria-pressed="true" role="button">Template Better</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Docguid</th>
+            <th scope="col">AICanonicalDiffrence</th>
+            <th scope="col">OrginalCanonicalDiffrence</th>
+            <th scope="col">Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var res in Model.aTTTemplateComparisionResults)
+            {
+        <tr>
+
+            <td>@res.Docguid</td>
+            <td>@res.AICanonicalDiffrence</td>
+            <td>@res.OrginalCanonicalDiffrence</td>
+
+            @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
+            {
+                <td>Equal</td>
+            }
+            else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
+            {
+                <td>Template has better extraction.</td>
+            }
+            else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
+            {
+                <td>Jarvis has better extraction.</td>
+            }
+            else
+            {
+                <td>Not Equal</td>
+            }
+
+
+        </tr>
+        }
+
+    </tbody>
+</table>

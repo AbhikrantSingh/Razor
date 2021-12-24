@@ -1,0 +1,34 @@
+﻿@page
+@model LearningRazor.Pages.AIvsTemplate.JarvisBetterModel
+@{
+}
+
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/TemplateBetter" aria-pressed="true" role="button">Template Better</a>
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/Index" aria-pressed="true" role="button">All Result</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Docguid</th>
+            <th scope="col">AICanonicalDiffrence</th>
+            <th scope="col">Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var res in Model.aTTTemplateComparisionResults)
+            {
+
+             @if (res.AICanonicalDiffrence.Length > 0)
+             {
+
+                <tr>
+               <td>@res.Docguid</td>
+               <td>@res.AICanonicalDiffrence</td>
+             </tr>
+             }
+            }
+
+
+        </tbody>
+    </table>
