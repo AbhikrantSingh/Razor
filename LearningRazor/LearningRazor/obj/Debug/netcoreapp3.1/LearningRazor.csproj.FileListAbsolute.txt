@@ -48,3 +48,7 @@ G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\bin\Debug\netcoreapp3.1\RazorP
 G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\obj\Debug\netcoreapp3.1\Razor\Pages\AIvsTemplate\Index.cshtml.g.cs
 G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\obj\Debug\netcoreapp3.1\Razor\Pages\AIvsTemplate\JarvisBetter.cshtml.g.cs
 G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\obj\Debug\netcoreapp3.1\Razor\Pages\AIvsTemplate\TemplateBetter.cshtml.g.cs
+G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\bin\Debug\netcoreapp3.1\ClosedXML.dll
+G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
+G:\FIFA\LearinigRazor\LearningRazor\LearningRazor\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
