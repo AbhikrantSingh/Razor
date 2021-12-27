@@ -1,7 +1,6 @@
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\bin\Debug\netcoreapp3.1\RazorLearningTutorials.deps.json
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\bin\Debug\netcoreapp3.1\RazorLearningTutorials.dll
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\bin\Debug\netcoreapp3.1\RazorLearningTutorials.pdb
-G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.csprojAssemblyReference.cache
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.GeneratedMSBuildEditorConfig.editorconfig
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.AssemblyInfoInputs.cache
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.AssemblyInfo.cs

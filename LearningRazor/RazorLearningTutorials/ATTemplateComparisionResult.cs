@@ -6,9 +6,10 @@ namespace RazorLearningTutorials
 {
     public class ATTemplateComparisionResult
     {
+
         public string OrginalCanonicalDiffrence { get; set; }
         public string AICanonicalDiffrence { get; set; }
-        public string Docguid { get; set; }
+        public int Docguid { get; set; }
 
         public string Result { get; set; }
 
@@ -19,9 +20,6 @@ namespace RazorLearningTutorials
             Docguid = docguid;
         }*/
 
-        public ATTemplateComparisionResult()
-        {
-        }
-
+       
     }
 }

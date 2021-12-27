@@ -1,11 +1,9 @@
 ﻿@page
 @model LearningRazor.Pages.AIvsTemplate.IndexModel
-@{
-
-}
+@{ }
 
 
-<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/JarvisBetter"  aria-pressed="true" role="button">Jarvis Better</a>
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/JarvisBetter" aria-pressed="true" role="button">Jarvis Better</a>
 <a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/TemplateBetter" aria-pressed="true" role="button">Template Better</a>
 
 <table class="table">
@@ -19,37 +17,53 @@
     </thead>
     <tbody>
         <tr>
-            @foreach (var res in Model.aTTTemplateComparisionResults)
+            @foreach (var res in Model.Data)
             {
-        <tr>
+<tr>
 
-            <td>@res.Docguid</td>
-            <td>@res.AICanonicalDiffrence</td>
-            <td>@res.OrginalCanonicalDiffrence</td>
+    <td>@res.Docguid</td>
+    <td>@res.AICanonicalDiffrence</td>
+    <td>@res.OrginalCanonicalDiffrence</td>
 
-            @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
-            {
-                <td>Equal</td>
-            }
-            else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
-            {
-                <td>Template has better extraction.</td>
-            }
-            else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
-            {
-                <td>Jarvis has better extraction.</td>
-            }
-            else
-            {
-                <td>Not Equal</td>
-            }
+    @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
+    {
+<td>Equal</td>
+ }
+else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
+{
+<td>Template has better extraction.</td>
+ }
+else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
+{
+<td>Jarvis has better extraction.</td>
+ }
+else
+{
+<td>Not Equal</td>
+}
 
 
-        </tr>
-        }
+</tr>
+}
+
+
+        </tbody>
+    </table>
 
     <form method="post">
         <input type="submit" value="Export" asp-page-handler="Export" />
     </form>
-    </tbody>
-</table>
+
+
+    <div>
+        <ul class="pagination">
+            @for (var i = 1; i <= Model.pagination1.TotalPage; i++)
+            {
+
+             <li class="page-item @(i == Model.pagination1.CurrentPage ? "active" : "")">
+                <a asp-page-handler="/pagination" asp-route-currentpage="@i"  class="page-link" > @i</a>
+             </li> 
+              }
+
+        </ul>
+    </div>

@@ -11,19 +11,31 @@ namespace LearningRazor.Pages.AIvsTemplate
 {
     public class TemplateBetterModel : PageModel
     {
-        public readonly IAITemplateComparisionRepo iAITemplateComparisionRepo;
-        public IEnumerable<ATTemplateComparisionResult> aTTTemplateComparisionResults { get; set; }
+        public Pagination pagination = new Pagination();
 
-        public TemplateBetterModel(IAITemplateComparisionRepo iAITemplateComparisionRepo)
+        [BindProperty(SupportsGet = true)]
+        public int CurrentPage { get; set; } = 1;
+
+        public List<TemplateBetter> Data { get; set; }
+
+        //public readonly IPaginationService paginationService;
+
+        public readonly ITemplateBetter templateBetterService;
+
+        public TemplateBetterModel( ITemplateBetter templateBetter)
         {
-            this.iAITemplateComparisionRepo = iAITemplateComparisionRepo;
+
+            this.templateBetterService = templateBetter;
         }
 
 
-        
-        public void OnGet()
+
+        public async Task OnGetAsync()
         {
-            aTTTemplateComparisionResults = iAITemplateComparisionRepo.getATTemplateComparisionResults();//  mparisionRepo.getATTemplateComparisionResults();
+            pagination.CurrentPage = CurrentPage;
+            Data = (List<TemplateBetter>)templateBetterService.GetTemplateBetterResult(pagination.CurrentPage, pagination.PageSize);
+
+            pagination.Count = templateBetterService.GetTemplateBetterCount();
 
         }
     }

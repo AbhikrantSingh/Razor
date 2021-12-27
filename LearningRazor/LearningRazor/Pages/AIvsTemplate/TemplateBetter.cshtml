@@ -1,5 +1,5 @@
 ﻿@page
-@model LearningRazor.Pages.AIvsTemplate.JarvisBetterModel
+@model LearningRazor.Pages.AIvsTemplate.TemplateBetterModel
 @{
 }
 
@@ -11,23 +11,37 @@
         <tr>
             <th scope="col">Docguid</th>
             <th scope="col">OrginalCanonicalDiffrence</th>
-            
+
         </tr>
     </thead>
     <tbody>
         <tr>
-            @foreach (var res in Model.aTTTemplateComparisionResults)
+            @foreach (var res in Model.Data)
             {
-            @if (res.OrginalCanonicalDiffrence.Length > 0)
-             {
-              <tr>
+
+                <tr>
 
                     <td>@res.Docguid</td>
                     <td>@res.OrginalCanonicalDiffrence</td>
-            </tr>
-                }
+                </tr>
             }
-
-
         </tbody>
     </table>
+
+    <form method="post">
+        <input type="submit" value="Export" asp-page-handler="Export" />
+    </form>
+
+
+    <div>
+        <ul class="pagination">
+            @for (var i = 1; i <= Model.pagination.TotalPage; i++)
+            {
+
+<li class="page-item @(i == Model.pagination.CurrentPage ? "active" : "")">
+    <a asp-page-handler="/pagination" asp-route-currentpage="@i" class="page-link"> @i</a>
+</li>
+}
+
+        </ul>
+    </div>

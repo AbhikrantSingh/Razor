@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +26,23 @@ namespace LearningRazor
         {
             services.AddRazorPages();
             services.AddSingleton<IAITemplateComparisionRepo, MockAITemplateComparisionResult>();
+            
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddSingleton<ITemplateBetter, PaginationService>();
+            services.AddSingleton<IJarvisBetter, PaginationService>();
+
+            services.AddSingleton<IPaginationService, PaginationService>();
+
+
+            /*
+            services.AddTransient<IAITemplateComparisionRepo, MockAITemplateComparisionResult>();
+
+            services.AddTransient<IEmployeeRepository, MockEmployeeRepository>();
+
+            services.AddTransient<IJarvisBetter, JarvisBetterService>();
+
+            services.AddTransient<IPaginationService, PaginationService>();
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
