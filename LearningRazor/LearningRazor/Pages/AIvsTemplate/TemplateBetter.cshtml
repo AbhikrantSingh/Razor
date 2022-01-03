@@ -1,12 +1,26 @@
 ﻿@page
 @model LearningRazor.Pages.AIvsTemplate.TemplateBetterModel
-@{
+@{ }
+
+@section Scripts{
+
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+    <script>$(document).ready(function () {
+            $('#myTable').DataTable();
+            });
+    </script>
 }
 
 <a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/JarvisBetter" aria-pressed="true" role="button">Jarvis Better</a>
 <a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/Index" aria-pressed="true" role="button">All Result</a>
 
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th scope="col">Docguid</th>
@@ -15,33 +29,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            @foreach (var res in Model.Data)
-            {
 
-                <tr>
+        @foreach (var res in Model.Data)
+        {
+            <tr>
+                <td>@res.Docguid</td>
+                <td>@res.OrginalCanonicalDiffrence</td>
+            </tr>
+        }
 
-                    <td>@res.Docguid</td>
-                    <td>@res.OrginalCanonicalDiffrence</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-    <form method="post">
-        <input type="submit" value="Export" asp-page-handler="Export" />
-    </form>
-
-
-    <div>
-        <ul class="pagination">
-            @for (var i = 1; i <= Model.pagination.TotalPage; i++)
-            {
-
-<li class="page-item @(i == Model.pagination.CurrentPage ? "active" : "")">
-    <a asp-page-handler="/pagination" asp-route-currentpage="@i" class="page-link"> @i</a>
-</li>
-}
-
-        </ul>
-    </div>
+<form method="post">
+    <input type="submit" value="Export" asp-page-handler="Export" />
+</form>

@@ -34,7 +34,7 @@ namespace LearningRazor
 
             services.AddSingleton<IPaginationService, PaginationService>();
 
-            
+            services.AddTransient<MockAITemplateComparisionResult>();
             /*
             services.AddTransient<IAITemplateComparisionRepo, MockAITemplateComparisionResult>();
 

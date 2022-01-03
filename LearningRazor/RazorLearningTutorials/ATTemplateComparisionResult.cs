@@ -13,12 +13,7 @@ namespace RazorLearningTutorials
 
         public string Result { get; set; }
 
-        /*public ATTemplateComparisionResult(string orginalCanonicalDiffrence, string aICanonicalDiffrence, string docguid)
-        {
-            OrginalCanonicalDiffrence = orginalCanonicalDiffrence;
-            AICanonicalDiffrence = aICanonicalDiffrence;
-            Docguid = docguid;
-        }*/
+      
 
        
     }

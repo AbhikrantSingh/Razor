@@ -18,13 +18,11 @@ namespace LearningRazor.Pages.AIvsTemplate
 
         public List<TemplateBetter> Data { get; set; }
 
-        //public readonly IPaginationService paginationService;
-
         public readonly ITemplateBetter templateBetterService;
         public readonly IPaginationService paginationService;
 
 
-        public TemplateBetterModel( ITemplateBetter templateBetter, IPaginationService paginationService)
+        public TemplateBetterModel(ITemplateBetter templateBetter, IPaginationService paginationService)
         {
 
             this.templateBetterService = templateBetter;
@@ -32,13 +30,9 @@ namespace LearningRazor.Pages.AIvsTemplate
         }
 
 
-
         public async Task OnGetAsync()
         {
-            pagination.CurrentPage = CurrentPage;
-            Data = (List<TemplateBetter>)paginationService.GetTemplateBetterResult(pagination.CurrentPage, pagination.PageSize);
-
-            pagination.Count = templateBetterService.GetTemplateBetterCount();
+            Data = templateBetterService.getTemplateList();
 
         }
     }

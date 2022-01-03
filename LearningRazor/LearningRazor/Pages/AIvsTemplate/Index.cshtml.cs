@@ -15,34 +15,34 @@ namespace LearningRazor.Pages.AIvsTemplate
 {
     public class IndexModel : PageModel
     {
-        /*
-          [BindProperty(SupportsGet = true)]
-          public int CurrentPage { get; set; } = 1;
-          public int Count { get; set; }
-          public int PageSize { get; set; } = 5;
 
-          public int TotalPage => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
-          */
-        public Pagination pagination1 = new Pagination();
-        [BindProperty(SupportsGet = true)]
-        public int CurrentPage { get; set; } = 1;
-        public List<ATTemplateComparisionResult> Data { get; set; }
+        public IEnumerable<ATTemplateComparisionResult> Data { get; set; }
 
-        public readonly IPaginationService paginationService;
 
 
         
         public readonly IAITemplateComparisionRepo iAITemplateComparisionRepo;
         public IEnumerable<ATTemplateComparisionResult> aTTTemplateComparisionResults { get; set; }
-        public IndexModel(IAITemplateComparisionRepo iAITemplateComparisionRepo, IPaginationService paginationService )
+        public IndexModel(IAITemplateComparisionRepo iAITemplateComparisionRepo)
         {
 
             this.iAITemplateComparisionRepo = iAITemplateComparisionRepo;
-            this.paginationService = paginationService;
-            pagination1 = new Pagination();
- 
+          
         }
 
+
+
+
+        public void OnGet()
+        {
+            Data = iAITemplateComparisionRepo.getATTemplateComparisionResults();
+           
+        }
+      
+        
+        /*
+         * 
+         * 
 
         public async Task OnGetAsync()
         {
@@ -53,6 +53,9 @@ namespace LearningRazor.Pages.AIvsTemplate
             pagination1.Count =  paginationService.GetCount();
             Console.WriteLine(pagination1.Count);
         }
+        */
+
+
 
         public FileContentResult OnPostExport()
         {

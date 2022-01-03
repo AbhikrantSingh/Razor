@@ -12,33 +12,20 @@ namespace LearningRazor.Pages.AIvsTemplate
     public class JarvisBetterModel : PageModel
     {
 
-        public  Pagination pagination=new Pagination();
-        [BindProperty(SupportsGet = true)]
-        public int CurrentPage { get; set; } = 1;
-        public List<JarvisBetter> Data { get; set; }
-
-
-        
-
-        public readonly IPaginationService paginationService;
-
-
-        public readonly IJarvisBetter jarvisService;
-        public JarvisBetterModel( IJarvisBetter jarvisService, IPaginationService paginationService)
+         public List<JarvisBetter> Data { get; set; }
+         public readonly IJarvisBetter jarvisService;
+        public JarvisBetterModel( IJarvisBetter jarvisService)
         {
 
             this.jarvisService = jarvisService;
-            this.paginationService = paginationService;
+
 
     }
 
 
         public async Task OnGetAsync()
         {
-            pagination.CurrentPage = CurrentPage;
-            Data = (List<JarvisBetter>)paginationService.GetJarvisBetterResult(pagination.CurrentPage, pagination.PageSize);
-
-            pagination.Count = jarvisService.GetJarvisCount();
+            Data=jarvisService.getJarvisList();
            
         }
 

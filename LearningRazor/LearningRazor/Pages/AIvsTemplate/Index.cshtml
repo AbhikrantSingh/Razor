@@ -1,83 +1,70 @@
 ﻿@page
 @model LearningRazor.Pages.AIvsTemplate.IndexModel
-@{ }
 
 
-<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/JarvisBetter" aria-pressed="true" role="button">Jarvis Better</a>
+@section Scripts{
+
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+
 <a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/TemplateBetter" aria-pressed="true" role="button">Template Better</a>
+<a class=btn btn-primary btn-lg active" type="button" asp-page="/AIvsTemplate/Index" aria-pressed="true" role="button">All Result</a>
 
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th scope="col">Docguid</th>
             <th scope="col">AICanonicalDiffrence</th>
             <th scope="col">OrginalCanonicalDiffrence</th>
             <th scope="col">Result</th>
+
         </tr>
     </thead>
     <tbody>
-        <tr>
+        
             @foreach (var res in Model.Data)
             {
-<tr>
+            <tr>
 
-    <td>@res.Docguid</td>
-    <td>@res.AICanonicalDiffrence</td>
-    <td>@res.OrginalCanonicalDiffrence</td>
+                <td>@res.Docguid</td>
+                <td>@res.AICanonicalDiffrence</td>
+                <td>@res.OrginalCanonicalDiffrence</td>
 
-    @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
-    {
-<td>Equal</td> }
+                @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
+                {
+                    <td>Equal</td>
+                }
                 else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
                 {
-<td>Template has better extraction.</td> }
+                    <td>Template has better extraction.</td>
+                }
                 else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
                 {
-<td>Jarvis has better extraction.</td> }
+                    <td>Jarvis has better extraction.</td>
+                }
                 else
                 {
-<td>Not Equal</td>}
-
-
-</tr>}
+                    <td>Not Equal</td>
+                }
+            </tr>
+            }
 
 
         </tbody>
-    </table>
+</table>
 
-    <form method="post">
-        <input type="submit" value="Export" asp-page-handler="Export" />
-    </form>
+<form method="post">
+    <input type="submit" value="Export" asp-page-handler="Export" />
 
-
-    <div>
-        <ul class="pagination">
-            @for (var i = 1; i <= Model.pagination1.TotalPage; i++)
-            {
-
-<li class="page-item @(i == Model.pagination1.CurrentPage ? "active" : "")">
-    <a asp-page-handler="/pagination" asp-route-currentpage="@i" class="page-link"> @i</a>
-</li>
-}
-
-        </ul>
-    </div>
-
-    <div>
-        <ul class="pagination">
-            <li class="page-item @(!Model.pagination1.ShowFirst? "disabled":"")">
-                <a asp-page-handler="/pagination" asp-route-CurrentPage="1" class="page-link"><i class="fas fa-fast-backward"></i>1st </a>
-            </li>
-
-            <li class="page-item @(!Model.pagination1.ShowPrevious? "disabled":"")">
-                <a asp-page-handler="/pagination" asp-route-CurrentPage="@(Model.CurrentPage -1)" class="page-link"><i class="fas fa-step-backward"></i>Prev</a>
-            </li>
-            <li class="page-item  @(!Model.pagination1.ShowNext? "disabled":"")">
-                <a asp-page-handler="/pagination" asp-route-CurrentPage="@(Model.CurrentPage + 1)" class="page-link"><i class="fas fa-step-forward"></i>Next</a>
-            </li>
-
-            <li class="page-item  @(!Model.pagination1.ShowLast? "disabled":"")">
-                <a asp-page-handler="/pagination" asp-route-CurrentPage="@Model.pagination1.TotalPage" class="page-link"><i class="fas fa-fast-forward"></i>Last</a>
-            </li>
-        </ul>
-    </div>
+</form>

@@ -7,4 +7,3 @@ G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.csproj.CoreCompileInputs.cache
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.dll
 G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.pdb
-G:\FIFA\LearinigRazor\LearningRazor\RazorLearningTutorials\obj\Debug\netcoreapp3.1\RazorLearningTutorials.csprojAssemblyReference.cache
