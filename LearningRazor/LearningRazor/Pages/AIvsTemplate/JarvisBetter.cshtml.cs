@@ -18,6 +18,7 @@ namespace LearningRazor.Pages.AIvsTemplate
         public List<JarvisBetter> Data { get; set; }
 
 
+        
 
         public readonly IPaginationService paginationService;
 

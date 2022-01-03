@@ -27,24 +27,19 @@
 
     @if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length == 0)
     {
-<td>Equal</td>
- }
-else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
-{
-<td>Template has better extraction.</td>
- }
-else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
-{
-<td>Jarvis has better extraction.</td>
- }
-else
-{
-<td>Not Equal</td>
-}
+<td>Equal</td> }
+                else if (res.OrginalCanonicalDiffrence.Length > 0 && res.AICanonicalDiffrence.Length == 0)
+                {
+<td>Template has better extraction.</td> }
+                else if (res.OrginalCanonicalDiffrence.Length == 0 && res.AICanonicalDiffrence.Length > 0)
+                {
+<td>Jarvis has better extraction.</td> }
+                else
+                {
+<td>Not Equal</td>}
 
 
-</tr>
-}
+</tr>}
 
 
         </tbody>
@@ -60,10 +55,29 @@ else
             @for (var i = 1; i <= Model.pagination1.TotalPage; i++)
             {
 
-             <li class="page-item @(i == Model.pagination1.CurrentPage ? "active" : "")">
-                <a asp-page-handler="/pagination" asp-route-currentpage="@i"  class="page-link" > @i</a>
-             </li> 
-              }
+<li class="page-item @(i == Model.pagination1.CurrentPage ? "active" : "")">
+    <a asp-page-handler="/pagination" asp-route-currentpage="@i" class="page-link"> @i</a>
+</li>
+}
 
+        </ul>
+    </div>
+
+    <div>
+        <ul class="pagination">
+            <li class="page-item @(!Model.pagination1.ShowFirst? "disabled":"")">
+                <a asp-page-handler="/pagination" asp-route-CurrentPage="1" class="page-link"><i class="fas fa-fast-backward"></i>1st </a>
+            </li>
+
+            <li class="page-item @(!Model.pagination1.ShowPrevious? "disabled":"")">
+                <a asp-page-handler="/pagination" asp-route-CurrentPage="@(Model.CurrentPage -1)" class="page-link"><i class="fas fa-step-backward"></i>Prev</a>
+            </li>
+            <li class="page-item  @(!Model.pagination1.ShowNext? "disabled":"")">
+                <a asp-page-handler="/pagination" asp-route-CurrentPage="@(Model.CurrentPage + 1)" class="page-link"><i class="fas fa-step-forward"></i>Next</a>
+            </li>
+
+            <li class="page-item  @(!Model.pagination1.ShowLast? "disabled":"")">
+                <a asp-page-handler="/pagination" asp-route-CurrentPage="@Model.pagination1.TotalPage" class="page-link"><i class="fas fa-fast-forward"></i>Last</a>
+            </li>
         </ul>
     </div>
