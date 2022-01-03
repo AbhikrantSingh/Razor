@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace RazorPageTutorial.Services
 {
-    public class PaginationService : IPaginationService , ITemplateBetter, IJarvisBetter
+    public class PaginationService : IPaginationService 
     {
 
         public IAITemplateComparisionRepo aITemplateComparisionRepo;
+        public IJarvisBetter  jarvisBetter { get; set; }
+        public ITemplateBetter ITemplateBetter { get; set; }
 
         public IEnumerable<ATTemplateComparisionResult> aTTTemplateComparisionResults { get; set; }
 
@@ -23,12 +25,13 @@ namespace RazorPageTutorial.Services
 
         List<TemplateBetter> templatelist1 = new List<TemplateBetter>();
 
-        public PaginationService(IAITemplateComparisionRepo iAITemplateComparisionRepo)
+        public PaginationService(IAITemplateComparisionRepo iAITemplateComparisionRepo, IJarvisBetter jarvisBetter, ITemplateBetter iTemplateBetter) 
         {
+            this.jarvisBetter = jarvisBetter;
+            ITemplateBetter = iTemplateBetter;
             this.aITemplateComparisionRepo = iAITemplateComparisionRepo;
-          
             OnGet();
-           
+
         }
 
         public int  GetCount()
@@ -49,8 +52,8 @@ namespace RazorPageTutorial.Services
         {
 
             aTTTemplateComparisionResults = aITemplateComparisionRepo.getATTemplateComparisionResults();
-            list = getJarvisList();
-            templateBetterlist = getTemplateList();
+            list = jarvisBetter.getJarvisList();
+            templateBetterlist = ITemplateBetter.getTemplateList();
         }
 
         public IEnumerable<JarvisBetter> GetJarvisBetterResult(int currentPage, int pageSize)
@@ -62,9 +65,9 @@ namespace RazorPageTutorial.Services
 
         public int GetJarvisCount()
         {
-            return list.Count();
+            return jarvisBetter.GetJarvisCount();
         }
-        public List<JarvisBetter> getJarvisList()
+       /* public List<JarvisBetter> getJarvisList()
         {
             List<JarvisBetter> list1 = new List<JarvisBetter>();
 
@@ -93,7 +96,7 @@ namespace RazorPageTutorial.Services
             return list1;
         }
 
-
+        */
         public IEnumerable<TemplateBetter> GetTemplateBetterResult(int currentPage, int pageSize)
         {
             templatelist1 = templateBetterlist.OrderBy(d => d.Docguid).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();

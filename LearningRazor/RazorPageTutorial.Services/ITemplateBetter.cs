@@ -7,7 +7,9 @@ namespace RazorPageTutorial.Services
 {
     public interface ITemplateBetter
     {
-        public IEnumerable<TemplateBetter> GetTemplateBetterResult(int currentPage, int pageSize);
+
         public int GetTemplateBetterCount();
+
+        public List<TemplateBetter> getTemplateList();
     }
 }

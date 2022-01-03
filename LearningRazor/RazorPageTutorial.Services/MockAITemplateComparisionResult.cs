@@ -43,5 +43,9 @@ namespace RazorPageTutorial.Services
             return list;
         }
 
+        public int GetTemplateBetterCount()
+        {
+            return list.Count;
+        }
     }
 }

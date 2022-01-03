@@ -8,5 +8,6 @@ namespace RazorPageTutorial.Services
     public interface IAITemplateComparisionRepo
     {
         IEnumerable<ATTemplateComparisionResult> getATTemplateComparisionResults();
+        public int GetTemplateBetterCount();
     }
 }

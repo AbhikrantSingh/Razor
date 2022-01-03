@@ -28,12 +28,13 @@ namespace LearningRazor
             services.AddSingleton<IAITemplateComparisionRepo, MockAITemplateComparisionResult>();
             
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
-            services.AddSingleton<ITemplateBetter, PaginationService>();
-            services.AddSingleton<IJarvisBetter, PaginationService>();
+            services.AddSingleton<ITemplateBetter, TemplateService>();
+
+            services.AddSingleton<IJarvisBetter, JarvisBetterService>();
 
             services.AddSingleton<IPaginationService, PaginationService>();
 
-
+            
             /*
             services.AddTransient<IAITemplateComparisionRepo, MockAITemplateComparisionResult>();
 

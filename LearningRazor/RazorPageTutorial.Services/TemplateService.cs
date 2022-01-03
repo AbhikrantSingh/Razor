@@ -5,40 +5,37 @@ using System.Text;
 
 namespace RazorPageTutorial.Services
 {
-    public class JarvisBetterService : IJarvisBetter
+    public class TemplateService : ITemplateBetter
     {
         public IAITemplateComparisionRepo aITemplateComparisionRepo;
 
-        public JarvisBetterService(IAITemplateComparisionRepo aITemplateComparisionRepo)
+        public TemplateService(IAITemplateComparisionRepo aITemplateComparisionRepo)
         {
             this.aITemplateComparisionRepo = aITemplateComparisionRepo;
         }
 
-        public IEnumerable<JarvisBetter> GetJarvisBetterResult(int currentPage, int pageSize)
+        public int GetTemplateBetterCount()
         {
-            throw new NotImplementedException();
+            return getTemplateList().Count;
         }
-
-        public int GetJarvisCount()
+        public List<TemplateBetter> getTemplateList()
         {
-            return getJarvisList().Count;
-        }
-
-        public List<JarvisBetter> getJarvisList()
-        {
-            List<JarvisBetter> list1 = new List<JarvisBetter>();
+            List<TemplateBetter> list1 = new List<TemplateBetter>();
             IEnumerable<ATTemplateComparisionResult> aTTTemplateComparisionResults = aITemplateComparisionRepo.getATTemplateComparisionResults();
+
             foreach (var res in aTTTemplateComparisionResults)
             {
                 if (res.AICanonicalDiffrence.Length > 0)
                 {
-                    list1.Add(new JarvisBetter() { AICanonicalDiffrence = res.AICanonicalDiffrence, Docguid = res.Docguid });
+                    list1.Add(new TemplateBetter() { OrginalCanonicalDiffrence = res.OrginalCanonicalDiffrence, Docguid = res.Docguid });
                 }
             }
             return list1;
         }
 
-
-
+        public IEnumerable<TemplateBetter> GetTemplateBetterResult(int currentPage, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

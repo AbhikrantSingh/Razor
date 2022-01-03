@@ -36,7 +36,7 @@ namespace LearningRazor.Pages.AIvsTemplate
         public async Task OnGetAsync()
         {
             pagination.CurrentPage = CurrentPage;
-            Data = (List<JarvisBetter>)jarvisService.GetJarvisBetterResult(pagination.CurrentPage, pagination.PageSize);
+            Data = (List<JarvisBetter>)paginationService.GetJarvisBetterResult(pagination.CurrentPage, pagination.PageSize);
 
             pagination.Count = jarvisService.GetJarvisCount();
            
